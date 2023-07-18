@@ -1,5 +1,4 @@
 Flask~=2.2.3
-pypiwin32~=223
 pywin32~=306
 setuptools~=65.5.0
 jsonschema~=4.17.3
