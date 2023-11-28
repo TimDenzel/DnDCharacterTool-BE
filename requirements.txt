@@ -1,3 +1,5 @@
 Flask~=2.2.3
 setuptools~=65.5.0
 jsonschema~=4.17.3
+flask-cors~=4.0.0
+pywin32~=306
