@@ -4,7 +4,6 @@ import webbrowser
 from flask import Flask, request, render_template
 from characterService import *
 from flask_cors import CORS
-from win32api import GenerateConsoleCtrlEvent
 app = Flask(__name__)
 CORS(app)
 
@@ -64,12 +63,6 @@ def deleteOldCharacter():  # put application's code here
     else:
         return '', 404
 
-
-@app.route('/shutdown', methods=['GET'])
-def shutdown():
-    CTRL_C_EVENT = 0
-    GenerateConsoleCtrlEvent(CTRL_C_EVENT, 0)
-    return "Server shutting down..."
 
 
 if __name__ == '__main__':
