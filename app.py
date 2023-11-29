@@ -24,8 +24,11 @@ def getCharacter():  # put application's code here
         return searchById(request.args.get("id"))
     except FileNotFoundError:
         return '', 404
-    except:
-        return '', 500
+    except Exception as e:
+        if hasattr(e, 'message'):
+            return print(e.message), 500
+        else:
+            return '', 500
 
 
 @app.route('/character', methods=['POST'])
@@ -33,12 +36,18 @@ def addNewCharacter():  # put application's code here
     try:
         addCharacter(request.data)
         return '', 201
-    except ValueError:
-        return '', 400
+    except ValueError as v:
+        if hasattr(v, 'message'):
+            return print(v.message), 400
+        else:
+            return '', 400
     except ReferenceError:
         return '', 409
-    except:
-        return '', 500
+    except Exception as e:
+        if hasattr(e, 'message'):
+            return print(e.message), 500
+        else:
+            return '', 500
 
 
 @app.route('/character', methods=['PUT'])
@@ -48,12 +57,18 @@ def updateOldCharacter():  # put application's code here
         return '', 202
     except FileNotFoundError:
         return '', 404
-    except ValueError:
-        return '', 400
+    except ValueError as v:
+        if hasattr(v, 'message'):
+            return print(v.message), 400
+        else:
+            return '', 400
     except ReferenceError:
         return '', 409
-    except:
-        return '', 500
+    except Exception as e:
+        if hasattr(e, 'message'):
+            return print(e.message), 500
+        else:
+            return '', 500
 
 
 @app.route('/character', methods=['DELETE'])
