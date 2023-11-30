@@ -15,7 +15,7 @@ def root():  # put application's code here
 
 @app.route('/characters', methods=['GET'])
 def searchCharacters():  # put application's code here
-    return searchByName(request.args.get("name"))
+    return searchByName(request.args.get("name", None))
 
 
 @app.route('/character', methods=['GET'])
